@@ -27,14 +27,14 @@ document.onkeyup = function(start) {
 		}
 	} 
 	else {
-		wins = 0; losses = 0; guessLeft = 10; userGuess = []
+		wins = 0; losses = 0; guessLeft = 10; userGuess = [];
 	}
 
 	var html =
 	"<p>Wins: " + wins + "</p>" +
 	"<p>Losses: " + losses + "</p>" +
 	"<p>Guesses Left: " + guessLeft + "</p>" +
-	"<p>Your guesses so far: " + userGuess + " </p>" +
+	"<p>Your guesses so far: " + userGuess + "</p>" +
 	"<p>Computer guessed: " + compChoice + "</p>";
 
 	document.querySelector("#scoreBoard").innerHTML = html;
