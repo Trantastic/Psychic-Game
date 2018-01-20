@@ -14,21 +14,39 @@ var guessLeft = 10;
 document.onkeyup = function(start) {
 	var userChoice = start.key;
 	var compChoice = letters[Math.floor(Math.random() * letters.length)];
-
-	userGuess.push(userChoice);
-
+	
+	userGuess.push(userChoice);	
+	
 	if(guessLeft > 0) {
 		if(userChoice === compChoice) {
-			wins++; guessLeft--;
+			wins++;
+			guessLeft = 10;
+			userGuess = [];
 		}	
 
 		else if (userChoice !== compChoice) {
-			losses++; guessLeft--;
+			guessLeft--;
 		}
+
 	} 
 	else {
-		wins = 0; losses = 0; guessLeft = 10; userGuess = [];
+		losses++
+		guessLeft = 10; 
+		userGuess = [];
 	}
+
+//Trying to prevent duplicates in userGuess[]
+	// for(var i = userGuess.length - 1; i < 0; i--) {
+	// 	if(userGuess[i] === userChoice) {
+	// 		userGuess.splice(i,1);
+	// 		guessLeft++;
+	// 		// alert("You already guessed that letter!");
+	// 	}
+
+	// }
+
+
+
 
 	var html =
 	"<p>Wins: " + wins + "</p>" +
